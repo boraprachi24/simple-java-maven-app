@@ -3,6 +3,7 @@ package com.AzAppSeleniumTests.SeleniumTests;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import java.io.File;
 
 import static org.junit.Assert.assertTrue;
 
@@ -18,4 +19,14 @@ public class BasicSelTest
         assertTrue( driver.getTitle().startsWith("Selenium Simplified") );
         driver.quit();
     }
+	
+	@Test
+	public void flakyTest()
+	{
+		File someFile = new File("D:\\temp\a.txt");
+		bool shouldDelete = someFile.exists();
+		assertTrue(shouldDelete==false);
+		if(shouldDelete)
+			someFile.delete();
+	}
 }
