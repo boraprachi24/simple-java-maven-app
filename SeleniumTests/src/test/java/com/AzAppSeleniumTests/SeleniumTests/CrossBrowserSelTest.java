@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import static org.junit.Assert.assertTrue;
 
-public class CrossBrowerSelTest
+public class CrossBrowserSelTest
 {
 	@Test
 	public void testApp()
