@@ -24,7 +24,7 @@ pipeline
                 }
             }
         }
-		stage ('Build and run Selenium tests')
+		stage ('Run Basic Selenium tests')
 		{
 		    steps
 			{
@@ -37,6 +37,31 @@ pipeline
                     junit 'SeleniumTests/target/surefire-reports/*.xml'
                 }
             }
+		}
+		stage ('Run cross-browser Selenium tests')
+		{
+			steps
+			{
+			    parallel (
+                "Chrome" : {
+                    bat 'mvn -f SeleniumTests/pom.xml test -Dtest=CrossBrowserSelTest'
+                },
+                "Firefox" : {
+                    echo 'done'
+                },
+                "IE" : {
+                    echo 'done'
+                }
+				)
+			}
+            post
+			{
+                always
+				{
+                    junit 'SeleniumTests/target/surefire-reports/*CrossBrowser*.xml'
+                }
+            }
+
 		}
     }
 }
