@@ -24,7 +24,7 @@ pipeline
                 }
             }
         }
-		stage ('Build and run Selenium tests)
+		stage ('Build and run Selenium tests')
 		{
 		    steps
 			{
