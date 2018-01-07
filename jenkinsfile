@@ -1,20 +1,42 @@
-pipeline {
+pipeline
+{
     agent any
-    stages {
-        stage('Build') { 
-            steps {
+    stages 
+	{
+        stage('Build')
+		{ 
+            steps
+			{
                 bat 'mvn -B -DskipTests clean package' 
             }
-         }  
-         stage('Unit Tests') {
-            steps {
+        }  
+        stage('Unit Tests')
+		{
+            steps
+			{
                 bat 'mvn test'
             }
-            post {
-                always {
+            post
+			{
+                always
+				{
                     junit 'target/surefire-reports/*.xml'
                 }
             }
         }
-        }
+		stage ('Build and run Selenium tests)
+		{
+		    steps
+			{
+                bat 'mvn -f SeleniumTests/pom.xml test'
+            }
+            post
+			{
+                always
+				{
+                    junit 'SeleniumTests/target/surefire-reports/*.xml'
+                }
+            }
+		}
     }
+}
