@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import static org.junit.Assert.assertTrue;
 
-public class SelTest
+public class BasicSelTest
 {
 	@Test
 	public void testApp()

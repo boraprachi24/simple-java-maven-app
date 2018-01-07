@@ -28,7 +28,7 @@ pipeline
 		{
 		    steps
 			{
-                bat 'mvn -f SeleniumTests/pom.xml test'
+                bat 'mvn -f SeleniumTests/pom.xml test -Dtest=BasicSelTest'
             }
             post
 			{
