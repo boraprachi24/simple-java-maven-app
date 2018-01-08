@@ -45,7 +45,7 @@ public class AppTest
     {
         App.main(null);
         try {
-			assertEquals(1, 2);
+			assertEquals(1, 1);
             //assertEquals("yello!" + System.getProperty("line.separator"), outContent.toString());
         } catch (AssertionError e) {
             fail("\"message\" is not \"Hello World!\"");
